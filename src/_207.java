@@ -6,7 +6,7 @@
  *
  * 首先将课程关系换成邻接矩阵表示的有向图，矩阵的长宽均为课程数！
  *
- * 那么最简单的方式就是，从每一个点都开始进行一次DFS，如果访问到一个访问过的点就证明有环，return false
+ * 那么最简单的方式就是，从一个点都开始进行一次DFS，如果访问到一个访问过的点就证明有环，return false
  * DFS的过程中，对每个点维持三种状态，0未访问、1表示在从某一点开始的DFS中正在进行DFS的一条路中访问过；
  * -1表示在从某个点开始DFS时，这个点已在其他路中遍历过无需重复，
  * 即当前节点的所有邻接节点都被访问过。！！！注意主要是这一个条件达成即可置为-1，减少重复
@@ -21,6 +21,7 @@ public class _207 {
         for (int i = 0; i < prerequisites.length; i++) {
             adjacency[prerequisites[i][1]][prerequisites[i][0]] = 1;
         }
+        //这个循环是为能够保证孤立的点也被访问到
         for (int i = 0; i < numCourses; i++) {
             if (!dfs(i))
                 return false;

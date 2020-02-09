@@ -1,6 +1,8 @@
 /**
  * 类别：哈希表
  *
+ *
+ * ！！ map.getOrDefault（key，defaultValue）用于从map中获取key的值，如果存在则取出，不存在则返回defaultVAlue
  * 要点：
  * 一.采用分为两组，HashMap存一组，另一组和HashMap进行比对。
  * 二.这样的话情况就可以分为三种：
